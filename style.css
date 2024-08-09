@@ -1,0 +1,2638 @@
+@import url(https://db.onlinewebfonts.com/c/f7d34c9e4c3102c89048d775c27a78f3?family=The+Seasons+Bold);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*-----------------------------------*\
+  ##CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root{
+  --header-color: #493021;
+  --btn-color: #493021;
+  --main-color: #FFF8F4/* #FEFCF9 */;
+  --title: #583825;
+}
+
+
+/*-----------------------------------*\
+  ##RESET
+\*-----------------------------------*/
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a { text-decoration: none; }
+
+address { font-style: normal; }
+
+i { pointer-events: none; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: var(--main-color);
+}
+
+/* h1{
+  font-family: "The Seasons Bold";
+} */
+
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.reveal.active{
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+
+/*-----------------------------------*\
+  ##HEADER
+\*-----------------------------------*/
+.header{
+  position: relative;
+  z-index: 2;
+  background-color: var(--header-color);
+  padding-block: 15px;
+  font-family: 'Montserrat', sans-serif;
+  height: 52px;
+}
+
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-left a{
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: #FFF8F4;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.header-left span:hover{
+  text-decoration: underline;
+}
+
+.header-right{
+  display: flex;
+  gap: 3rem;
+}
+
+.header-right .header-phone a{
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: #FFF8F4;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.header-right .header-phone span:hover{
+  text-decoration: underline;
+}
+
+.header-right .header-socials{
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.header-right .header-socials a{
+  color: #FFF8F4;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.header-right .header-socials a:hover{
+  transform: scale(1.2);
+}
+
+/*-----------------------------------*\
+  ##NAVBAR
+\*-----------------------------------*/
+
+.navbar{
+  position: sticky;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  top: 0;
+  left: 0;
+  height: 100px;
+  z-index: 100;
+  background-color: var(--main-color);
+  font-family: "The Seasons Bold", sans-serif;
+  transition: 0.6s;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.logo img{
+  max-width: 180px;
+  padding-bottom: 5px;
+}
+
+.nav-links{
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.navbar a{
+  text-decoration: none;
+  color: #000;
+  font-size: 19px;
+  text-transform: uppercase;
+}
+
+.navbar a:hover{
+  color: #5E3A2D;
+}
+
+/*-----------------------------------*\
+  ##SIDEBAR
+\*-----------------------------------*/
+.sidebar{
+  background: var(--main-color);
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  overflow-y: auto;
+  transition: 0.6s ease;
+  transition-property: left;
+  z-index: 1000;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar-header{
+  border-bottom: 1px solid grey;
+}
+
+.sidebar-header img{
+  width: 150px;
+  margin: 15px;
+  margin-left: 20px;
+}
+
+.close-btn{
+  position: absolute;
+  color: #000;
+  font-size: 23px;
+  right: 0px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.menu{
+  width: 100%;
+  margin-top: 30px;
+}
+
+.menu .item{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  cursor: pointer;
+}
+
+/* .menu .item .first-child{
+  background-color: var(--main-color);
+} */
+
+.menu .item a{
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 1px 30px;
+  line-height: 60px;
+  width: 100%;
+}
+
+/* .menu .item a:hover{
+  color: var(--title);
+} */
+
+.menu-btn{
+  position: absolute;
+  color: #000;
+  font-size: 29px;
+  margin: 25px;
+  cursor: pointer;
+}
+
+.sidebar.active{
+  left: 0;
+}
+
+.sidebar::-webkit-scrollbar{
+  width: 0px;
+}
+
+.nav-right-mobile{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/*DROPDOWN*/
+.item a .dropdown{
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  transition: 0.3s ease;
+}
+
+.item .sub-menu{
+  display: none;
+  background-color: #FFF8F4;
+}
+
+.rotate{
+  transform: rotate(90deg);
+}
+
+.nav-links .arrow{
+  position: relative;
+}
+
+.arrow::before{
+  content: '';
+  position: absolute;
+  right: -15px;
+  top: 7px;
+  z-index: 1000;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  transform: rotate(-225deg);
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.arrow.active::before{
+  top: 12px;
+  transform: rotate(-45deg);
+}
+
+.arrow .option{
+  list-style: none;
+  position: absolute;
+  left: -10px;
+  top: 30px;
+  width: 230px;
+  height: 75px;
+  cursor: pointer;
+  background-color: #FFF8F4;
+  color: #000;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+  display: none;
+}
+
+.arrow.active .option{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.arrow .option li{
+  cursor: pointer;
+  color: #000;
+  z-index: 5;
+}
+
+/* .arrow .option li:hover{
+  background-color: #CD0037;
+  color: #000;
+}
+
+.arrow .option li a:hover{
+  color: #000;
+} */
+
+.arrow-down {
+  transition: .2s;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.arrow-down {
+  transition: .2s;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/*-----------------------------------*\
+  ##HERO
+\*-----------------------------------*/
+.hero{
+  height: 800px;
+  background-image: url('img/35741001_1767761546654523_5545037228515786752_n\ 1.png');
+  background-size: cover;
+}
+
+.hero-box{
+  position: relative;
+  bottom: 190px;
+  margin: 0 auto;
+  width: 880px;
+  height: 300px;
+  background-color: #F4EFEA;
+  padding: 20px;
+}
+
+.hero-table{
+  border: 1px solid #000;
+  width: 840px;
+  height: 260px;
+}
+
+.hero-table .hero-content{
+  margin: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.hero-content .hero-title{
+  font-size: 20px;
+  letter-spacing: 10%;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: var(--title);
+}
+
+.hero-content .hero-subtitle{
+  font-size: 42px;
+  font-family: "The Seasons Bold", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--header-color);
+}
+
+.hero-content .hero-describ{
+  font-size: 17px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: var(--title);
+}
+
+
+/*-----------------------------------*\
+  ##DESPRE NOI
+\*-----------------------------------*/
+.about{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.about-card{
+  width: 500px;
+  height: 550px;
+  background-color: #F4EFEA;
+}
+
+.about-card .card-content{
+  text-align: center;
+}
+
+.about-title{
+  font-size: 40px;
+  padding-top: 30px;
+  color: var(--btn-color);
+  font-family: "The Seasons Bold", sans-serif;
+}
+
+.about-subtitle{
+  padding-top: 10px;
+  font-size: 18px;
+  color: var(--title);
+  font-family: "Montserrat", sans-serif;
+}
+
+.about-describ{
+  font-size: 17px;
+  line-height: 25px;
+  padding-top: 35px;
+  font-family: "Montserrat", sans-serif;
+  color: var(--title);
+  padding-bottom: 30px;
+}
+
+.about-describ span{
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.card-content .about-btn{
+  background-color: var(--btn-color);
+  color: #fff;
+  font-size: 20px;
+  font-family: "The Seasons Bold", sans-serif;
+  text-transform: uppercase;
+  border-radius: 5px;
+  padding: 12px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.card-content .about-btn:hover{
+  background-color: #5E3A2D;
+}
+
+.about-slider{
+  overflow: hidden;
+  width: 700px;
+  height: 500px;
+  border-radius: 10px;
+}
+
+.about-slides{
+  width: 500%;
+  height: 500px;
+  display: flex;
+}
+
+.about-slides input{
+  display: none;
+}
+
+.about-slide{
+  width: 20%;
+  transition: 2s;
+}
+
+.about-slide img{
+  width: 700px;
+  height: 500px;
+}
+
+.navigation-manual{
+  position: absolute;
+  width: 700px;
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+}
+
+.manual-btn{
+  border: 2px solid #fff;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+  margin-right: 40px;
+}
+
+.manual-btn:hover{
+  background: #493021;
+}
+
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first{
+  margin-left: -40%;
+}
+
+#radio4:checked ~ .first{
+  margin-left: -60%;
+}
+
+.navigation-auto{
+  position: absolute;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  margin-top: 460px;
+}
+
+.navigation-auto div{
+  border: 2px solid #493021;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+  background: #493021;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+  background: #493021;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+  background: #493021;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4{
+  background: #493021;
+}
+
+
+/*-----------------------------------*\
+  ##BONAPARTE
+\*-----------------------------------*/
+.bonaparte{
+  margin-top: 120px;
+}
+
+.bonaparte-title{
+  text-align: center;
+  font-size: 40px;
+  font-family: "The Seasons Bold", sans-serif;
+  color: var(--header-color);
+  text-transform: uppercase;
+}
+
+.bonaparte-subtitle{
+  margin-top: 54px;
+  text-align: center;
+  font-family: "The Seasons Bold", sans-serif;
+  color: #000;
+  font-size: 35px;
+}
+
+.bonaparte-describ{
+  width: 1000px;
+  font-size: 18px;
+  line-height: 27px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: var(--title);
+  margin: 30px auto;
+  border: 1px solid #493021;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.bonaparte-describ span{
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.bonaparte-top{
+  overflow: hidden;
+  text-align: center;
+}
+
+.container{
+  width: 410px;
+  margin: 16px auto;
+}
+
+.container .text{
+  position: relative;
+  color: var(--title);
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container .text.first-text{
+  color: var(--title);
+}
+
+.text.sec-text:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 410px;
+  background-color: var(--main-color);
+  border-left: 2px solid var(--title);
+  animation: animate 4s steps(7) infinite;
+}
+
+@keyframes animate{
+  40%, 60%{
+      left: 100%;
+  }
+  100%{
+      left: 0%;
+  }
+}
+
+.bona-slider{
+  margin-top: 22px;
+  overflow: hidden;
+  max-width: 1600px;
+}
+
+.bona-wrapper{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(((var(--view) - 1)) / var(--view));
+  position: relative;
+  left: 0;
+  transition: .3s;
+}
+
+.bona-wrapper > * {
+  aspect-ratio: 4 / 3;
+}
+
+.bona-slide{
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  height: 180px;
+  transition: all 0.3s ease-in-out;
+  cursor: default;
+  width: 550px;
+  height: 100%;
+}
+
+.bona-slide img{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.bona-slide img:hover{
+  transform: scale(1.1);
+}
+
+.bonaparte-bottom{
+  text-align: center;
+  margin-top: 32px;
+}
+
+.bonaparte-bottom .bona-btn{
+  text-transform: uppercase;
+  background-color: var(--btn-color);
+  color: #fff;
+  font-size: 18px;
+  font-family: "The Seasons Bold", sans-serif;
+  border-radius: 5px;
+  padding: 10px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.bona-btn:hover{
+  background-color: #5E3A2D;
+}
+
+/*-----------------------------------*\
+  ##POPUP
+\*-----------------------------------*/
+.bonaparte#blur.active,
+.eiffel#blur1.active
+{
+  filter: blur(20px);
+  pointer-events: none;
+  user-select: none;
+}
+
+#popup,
+#popup1
+{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 600px;
+  background: transparent;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 100;
+}
+
+#popup.active,
+#popup1.active
+{
+  top: 55%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+  z-index: 100;
+}
+
+#popup .icon-close,
+#popup1 .icon-close
+{
+  position: absolute;
+  top: 25px;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  font-size: 1.7em;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#popup .pop-img,
+#popup1 .pop-img
+{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+/*-----------------------------------*\
+  ##EIFFEL
+\*-----------------------------------*/
+.eiffel{
+  margin-top: 120px;
+}
+
+.eiffel-subtitle{
+  margin-top: 54px;
+  text-align: center;
+  font-family: "The Seasons Bold", sans-serif;
+  color: #000;
+  font-size: 35px;
+}
+
+.eiffel-top{
+  overflow: hidden;
+  text-align: center;
+}
+
+.container{
+  width: 410px;
+  margin: 16px auto;
+}
+
+.container .text{
+  position: relative;
+  color: var(--title);
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container .text.first-text{
+  color: var(--title);
+}
+
+.text.sec-text:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 410px;
+  background-color: var(--main-color);
+  border-left: 2px solid var(--title);
+  animation: animate 4s steps(7) infinite;
+}
+
+@keyframes animate{
+  40%, 60%{
+      left: 100%;
+  }
+  100%{
+      left: 0%;
+  }
+}
+
+.eif-slider{
+  margin-top: 22px;
+  overflow: hidden;
+  max-width: 1600px;
+}
+
+.eif-wrapper{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(((var(--view) - 1)) / var(--view));
+  position: relative;
+  left: 0;
+  transition: .3s;
+}
+
+.eif-wrapper > * {
+  aspect-ratio: 4 / 3;
+}
+
+.eif-slide{
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  height: 180px;
+  transition: all 0.3s ease-in-out;
+  cursor: default;
+  width: 550px;
+  height: 100%;
+}
+
+.eif-slide img{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.eif-slide img:hover{
+  transform: scale(1.1);
+}
+
+.eiffel-bottom{
+  text-align: center;
+  margin-top: 32px;
+}
+
+.eiffel-bottom .eif-btn{
+  text-transform: uppercase;
+  background-color: var(--btn-color);
+  color: #fff;
+  font-size: 18px;
+  font-family: "The Seasons Bold", sans-serif;
+  border-radius: 5px;
+  padding: 10px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.eiffel-bottom .eif-btn:hover{
+  background-color: #5E3A2D;
+}
+
+
+/*-----------------------------------*\
+  ##EVENIMENTE
+\*-----------------------------------*/
+.events{
+  margin-top: 120px;
+}
+
+.event-title{
+  text-align: center;
+  font-size: 40px;
+  font-family: "The Seasons Bold", sans-serif;
+  color: var(--header-color);
+  text-transform: uppercase;
+}
+
+.event-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  height: 790px;
+  margin-top: 30px;
+}
+
+.event-left,
+.event-middle,
+.event-right
+{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 790px;
+}
+
+.event-left .event-left-box,
+.event-right .event-right-box{
+  width: 350px;
+  height: 300px;
+}
+
+.event-left-box img,
+.event-middle-box img,
+.event-right-box img{
+  width: 100%;
+  height: 100%;
+}
+
+.event-middle-box{
+  width: 450px;
+  height: 660px;
+  padding-bottom: 30px;
+}
+
+.event-left-box span,
+.event-middle-box span,
+.event-right-box span{
+  position: relative;
+  bottom: 60px;
+  left: 20px;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  padding: 10px;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+}
+
+/*-----------------------------------*\
+  ##BENEFITS
+\*-----------------------------------*/
+.benefits{
+  margin-top: 30px;
+}
+
+.benefits-title{
+  text-align: center;
+  font-size: 40px;
+  font-family: "The Seasons Bold", sans-serif;
+  color: var(--header-color);
+  text-transform: uppercase;
+}
+
+.benefits-describ{
+  width: 1000px;
+  font-size: 18px;
+  line-height: 27px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: var(--title);
+  margin: 20px auto;
+}
+
+.benefits-describ span{
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.benefits-container{
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.benefits-columns{
+  display: flex;
+  flex-direction: column;
+}
+
+.benefits-column{
+  width: 700px;
+  height: 350px;
+  object-fit: cover;
+}
+
+.benefits-column img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.benefits-column .benefit-txt1,
+.benefits-column .benefit-txt2,
+.benefits-column .benefit-txt3,
+.benefits-column .benefit-txt4,
+.benefits-column .benefit-txt5,
+.benefits-column .benefit-txt6,
+.benefits-column .benefit-txt7,
+.benefits-column .benefit-txt8,
+.benefits-column .benefit-txt9,
+.benefits-column .benefit-txt10,
+.benefits-column .benefit-txt11,
+.benefits-column .benefit-txt12
+{
+  text-align: center;
+  position: relative;
+  bottom: 50%;
+  margin: auto;
+  color: #fff;
+  font-size: 45px;
+  font-weight: 500;
+  text-shadow: 2px 2px 5px #000;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+/*-----------------------------------*\
+  ##GALLERY
+\*-----------------------------------*/
+.gallery{
+  margin-top: 150px;
+  background-color: #F4EFEA;
+}
+
+.gallery-title{
+  padding-top: 35px;
+  margin-bottom: 35px;
+  text-align: center;
+  font-size: 40px;
+  font-family: "The Seasons Bold", sans-serif;
+  color: var(--header-color);
+  text-transform: uppercase;
+}
+
+.gallery-describ{
+  width: 1000px;
+  font-size: 18px;
+  line-height: 27px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: var(--title);
+  margin: 20px auto;
+}
+
+.gallery-describ span{
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.gallery-wrapper > div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-wrapper > div > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.gallery-wrapper{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 10px;
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
+}
+
+.gallery-wrapper .wide{
+  grid-column: span 2;
+}
+
+.gallery-wrapper .tall{
+  grid-row: span 2;
+}
+
+.gallery-wrapper .big{
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+
+
+
+#picture {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#picture:hover {opacity: 0.7s;}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 160px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 500px;
+}
+.modal-content,#caption {
+  -webkit-animation-name:zoom;
+  -webkit-animation-duration:0.6s;
+  animation-name:zoom;
+  animation-duration:0.6s;
+
+}
+@-webkit-keyframes zoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes zoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+
+  }
+}
+
+.close {
+  position: absolute;
+  top: 115px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/*-----------------------------------*\
+  ##MASS-MEDIA
+\*-----------------------------------*/
+.media{
+  margin-top: 120px;
+}
+
+.media-title{
+  text-align: center;
+  font-size: 40px;
+  font-family: "The Seasons Bold", sans-serif;
+  color: var(--header-color);
+  text-transform: uppercase;
+}
+
+.media-describ{
+  width: 1000px;
+  font-size: 18px;
+  line-height: 27px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: var(--title);
+  margin: 20px auto;
+}
+
+.media-describ span{
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.video-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 40px;
+}
+
+/*-----------------------------------*\
+  ##FOOTER
+\*-----------------------------------*/
+.footer{
+  background-color: #F4EFEA;
+  margin-top: 120px;
+  font-family: "Montserrrat", sans-serif;
+}
+
+.footer-container{
+  padding-bottom: 45px;
+  padding-top: 45px;
+}
+
+.footer-top{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footer-logo{
+  max-width: 250px;
+}
+
+.footer-contacts{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 30px;
+}
+
+.footer-contacts .footer-phone,
+.footer-contacts .footer-email,
+.footer-contacts .footer-map
+{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer-phone i,
+.footer-email i,
+.footer-map i
+{
+  color: #493021;
+  font-size: 20px;
+}
+
+.footer-phone span,
+.footer-email span,
+.footer-map span
+{
+  font-family: "Montserrrat", sans-serif;
+  color: #493021;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.footer-phone span:hover,
+.footer-email span:hover,
+.footer-map span:hover{
+  text-decoration: underline;
+}
+
+.footer-map .location{
+  font-weight: 600;
+}
+
+.footer-center .footer-title,
+.footer-right .footer-title
+{
+  font-size: 25px;
+  font-family: "The Seasons Bold", sans-serif;
+  color: #493021;
+  text-transform: uppercase;
+}
+
+.footer-center iframe{
+  margin-top: 15px;
+}
+
+.footer-right .footer-socials{
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 20px;
+}
+
+.footer-right .footer-describ{
+  font-size: 18px;
+  line-height: 28px;
+  margin-top: 15px;
+  width: 420px;
+  color: #493021;
+}
+
+.footer-socials .footer-social{
+  font-size: 22px;
+  color: #493021;
+}
+
+.footer-socials .footer-social:hover{
+  transform: scale(1.2);
+}
+
+.footer-bottom{
+  margin-top: 40px;
+}
+
+.footer-bottom .copyright{
+  text-align: center;
+  font-size: 18px;
+  color: #493021;
+}
+
+.copyright span{
+  color: #493021;
+  font-weight: 600;
+}
+
+
+/*-----------------------------------*\
+  ##MOBILE DEVICE
+\*-----------------------------------*/
+@media (max-width: 800px) {
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo{
+    margin-right: 170px;
+  }
+
+  .logo img{
+    max-width: 160px;
+  }
+
+  .header{
+    display: none;
+  }
+
+  .nav-links{
+    display: none;
+  }
+
+  .menu-btn{
+    margin-left: 320px;
+  }
+
+  .nav-right-mobile{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+
+  .nav-right-mobile a{
+    font-size: 18px;
+  }
+
+  .nav-right-mobile .mob-location{
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .nav-right-mobile .mob-phone{
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .nav-right-mobile .mobile-socials{
+    display: flex;
+    gap: 1rem;
+  }
+
+  .nav-right-mobile .mobile-socials a{
+    font-size: 20px;
+  }
+
+  .hero{
+    background: url(img/93014360_2942170619213604_5820972517753356288_n.jpg);
+    background-size: cover;
+    background-position: bottom;
+    height: 570px;
+  }
+
+  .hero-box{
+    width: 360px;
+    height: 415px;
+  }
+
+  .hero-table{
+    width: 320px;
+    height: 365px;
+  }
+
+  .hero-content .hero-title{
+    font-size: 15px;
+  }
+
+  .hero-content .hero-subtitle{
+    font-size: 26px;
+  }
+
+  .about{
+    margin-top: -90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .about-card{
+    width: 360px;
+    height: 730px;
+  }
+
+  .about-title{
+    font-size: 35px;
+  }
+
+  .about-subtitle{
+    font-size: 16px;
+  }
+
+  .about-describ{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .about-slider{
+    width: 360px;
+    height: 700px;
+  }
+
+  .navigation-manual,
+  .navigation-auto
+  {
+    width: 360px;
+  }
+
+  .bonaparte{
+    margin-top: -50px;
+  }
+
+  .bonaparte-title{
+    font-size: 30px;
+  }
+
+  .container .text{
+    font-size: 18px;
+  }
+
+  #popup,
+  #popup1{
+    width: 350px;
+    height: 470px;
+  }
+
+  .events{
+    padding-top: 400px;
+  }
+
+  .event-tile{
+    display: none;
+  }
+
+  .event-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .event-middle-box{
+    width: 350px;
+    height: 500px;
+  }
+
+  .benefits-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .benefits-title
+  {
+    margin-top: 650px;
+    font-size: 28px;
+  }
+
+  .benefits-describ,
+  .gallery-describ,
+  .bonaparte-describ,
+  .media-describ
+  {
+    width: 320px;
+    font-size: 16px;
+  }
+
+  .benefits-column{
+    width: 350px;
+  }
+
+  .benefits-column .benefit-txt1{
+    position: relative;
+    left: 20px;
+    font-size: 27px;
+  }
+
+  .benefits-column .benefit-txt2{
+    position: relative;
+    left: 90px;
+    font-size: 30px;
+  }
+
+  .benefits-column .benefit-txt3{
+    position: relative;
+    font-size: 30px;
+    left: 30px;
+  }
+
+  .benefits-column .benefit-txt4{
+    position: relative;
+    font-size: 30px;
+    left: 45px;
+  }
+
+  .benefits-column .benefit-txt5{
+    position: relative;
+    font-size: 30px;
+    left: 40px;
+  }
+
+  .benefits-column .benefit-txt6{
+    position: relative;
+    font-size: 30px;
+    left: 25px;
+  }
+
+  .benefits-column .benefit-txt7{
+    position: relative;
+    font-size: 30px;
+    left: 20px;
+  }
+
+  .benefits-column .benefit-txt8{
+    position: relative;
+    font-size: 30px;
+    left: 50px;
+  }
+  
+  .benefits-column .benefit-txt9{
+    position: relative;
+    font-size: 30px;
+    left: 30px;
+  }
+
+  .benefits-column .benefit-txt10{
+    position: relative;
+    font-size: 30px;
+    left: 15px;
+  }
+
+  .benefits-column .benefit-txt11{
+    position: relative;
+    font-size: 30px;
+    left: 90px;
+  }
+
+  .benefits-column .benefit-txt12{
+    position: relative;
+    font-size: 30px;
+    left: 95px;
+  }
+
+  .gallery-title,
+  .media-title
+  {
+    font-size: 30px;
+  }
+
+  .gallery-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .video-wrapper iframe{
+    width: 350px;
+  }
+
+  .footer-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-center{
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+
+  .footer-right{
+    margin-top: 50px;
+  }
+
+  .footer-right .footer-describ{
+    width: 300px;
+  }
+
+  /* .footer-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .footer-contacts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+}
+
+/*-----------------------------------*\
+  ##SMALL-TABLET DEVICE
+\*-----------------------------------*/
+
+@media (min-width: 768px){
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header{
+    display: block;
+  }
+
+  .header-left{
+    margin-left: 20px;
+  }
+
+  .header-right{
+    margin-right: 45px;
+  }
+
+  .menu-btn{
+    margin-left: 700px;
+  }
+
+  .logo{
+    margin-right: 550px;
+  }
+
+  .hero{
+    background-position: left;
+  }
+
+  .hero-box{
+    width: 650px;
+    height: 280px;
+  }
+
+  .hero-table{
+    width: 610px;
+    height: 240px;
+  }
+
+  .hero-content .hero-title{
+    font-size: 20px;
+  }
+
+  .hero-content .hero-subtitle{
+    font-size: 30px;
+  }
+
+  .hero-content .hero-describ{
+    font-size: 17px;
+  }
+
+  .about-card{
+    width: 650px;
+    height: 530px;
+  }
+
+  .about-title{
+    font-size: 40px;
+  }
+
+  .about-subtitle{
+    font-size: 18px;
+  }
+
+  .about-describ{
+    font-size: 18px;
+  }
+
+  .about-btn{
+    font-size: 18px;
+  }
+
+  .about-slider{
+    width: 650px;
+    height: 500px;
+  }
+
+  .navigation-manual,
+  .navigation-auto{
+    width: 650px;
+  }
+
+  .bonaparte{
+    margin-top: 120px;
+  }
+
+  .bonaparte-title{
+    font-size: 40px;
+  }
+
+  .container .text{
+    font-size: 20px;
+  }
+
+  #popup,
+  #popup1{
+    width: 450px;
+    height: 600px;
+  }
+
+  .events{
+    margin-top: -120px;
+  }
+
+  .event-container{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .event-left,
+  .event-middle,
+  .event-right{
+    gap: 15px;
+  }
+
+  .event-middle-box
+  {
+    width: 260px;
+    height: 650px;
+  }
+
+  .event-left .event-left-box,
+  .event-right .event-right-box{
+    width: 230px;
+    height: 300px;
+  }
+
+
+  .event-left-box span,
+  .event-middle-box span,
+  .event-right-box span{
+    left: 10px;
+  }
+
+  .benefits-title{
+    margin-top: 0px;
+  }
+  
+  .benefits-container{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .benefits-describ,
+  .gallery-describ,
+  .bonaparte-describ,
+  .media-describ
+  {
+    width: 700px;
+  }
+
+  .benefits-column{
+    width: 370px;
+  }
+
+  .gallery-title,
+  .benefits-title,
+  .media-title
+  {
+    font-size: 40px;
+  }
+
+  .benefits-describ,
+  .gallery-describ,
+  .bonaparte-describ,
+  .media-describ
+  {
+    font-size: 18px;
+  }
+
+  .gallery-wrrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 10px;
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+  }
+
+  .benefits-column .benefit-txt10{
+    position: relative;
+    font-size: 30px;
+    left: 30px;
+  }
+
+  .benefits-column .benefit-txt11{
+    position: relative;
+    font-size: 30px;
+    left: 100px;
+  }
+
+  .benefits-column .benefit-txt12{
+    position: relative;
+    font-size: 30px;
+    left: 100px;
+  }
+
+  .footer-center{
+    margin-left: 170px;
+  }
+
+}
+
+/*-----------------------------------*\
+  ##MID-TABLET DEVICE
+\*-----------------------------------*/
+
+@media (min-width: 820px){
+  .nav-links{
+    display: none;
+  }
+
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-right-mobile{
+    margin-left: 35px;
+    margin-top: 30px;
+  }
+
+  .menu-btn{
+    margin-left: 730px;
+  }
+
+  .header-left{
+    margin-left: 30px;
+  }
+
+  .header-right{
+    margin-right: 65px;
+  }
+
+  .menu .item a{
+    font-size: 20px;
+  }
+
+  .nav-right-mobile a{
+    font-size: 20px;
+  }
+
+  .nav-right-mobile .mob-location{
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .nav-right-mobile .mob-phone{
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .nav-right-mobile .mobile-socials{
+    display: flex;
+    gap: 1rem;
+  }
+
+  .nav-right-mobile .mobile-socials a{
+    font-size: 20px;
+  }
+
+  .hero-box{
+    width: 680px;
+    height: 280px;
+  }
+
+  .hero-table{
+    width: 640px;
+    height: 240px;
+  }
+
+  .hero-content .hero-title{
+    font-size: 20px;
+  }
+
+  .hero-content .hero-subtitle{
+    font-size: 32px;
+  }
+
+  .hero-content .hero-describ{
+    font-size: 17px;
+  }
+
+  .about{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .about-card{
+    width: 680px;
+    height: 540px;
+  }
+
+  .about-title{
+    font-size: 42px;
+  }
+
+  .about-subtitle,
+  .about-describ,
+  .about-btn
+  {
+    font-size: 18px;
+  }
+
+  .about-describ{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .about-slider{
+    width: 680px;
+    height: 510px;
+  }
+
+  .bonaparte{
+    margin-top: 120px;
+  }
+
+  .bonaparte-title{
+    font-size: 40px;
+  }
+
+  .container .text{
+    font-size: 20px;
+  }
+
+  .eiffel{
+    margin-top: 50px;
+  }
+
+  #popup,
+  #popup1{
+    width: 450px;
+    height: 600px;
+  }
+
+  .events{
+    padding-top: 250px;
+  }
+
+  .event-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .event-left,
+  .event-middle,
+  .event-right{
+    gap: 20px;
+  }
+
+  .event-middle-box
+  {
+    width: 300px;
+    height: 650px;
+  }
+
+  .event-left .event-left-box,
+  .event-right .event-right-box{
+    width: 230px;
+    height: 300px;
+  }
+
+
+  .event-left-box span,
+  .event-middle-box span,
+  .event-right-box span{
+    left: 10px;
+  }
+
+  .benefits-column{
+    width: 390px;
+  }
+  
+  .benefits-column .benefit-txt1
+  {
+    font-size: 30px;
+    position: relative;
+    left: 22px;
+  }
+
+  .benefits-column .benefit-txt2{
+    font-size: 30px;
+    position: relative;
+    left: 90px;
+  }
+
+  .benefits-column .benefit-txt3{
+    font-size: 30px;
+    position: relative;
+    left: 40px;
+  }
+
+  .benefits-column .benefit-txt4{
+    position: relative;
+    font-size: 30px;
+    left: 60px;
+  }
+
+  .benefits-column .benefit-txt5{
+    position: relative;
+    font-size: 30px;
+    left: 60px;
+  }
+
+  .benefits-column .benefit-txt6{
+    position: relative;
+    font-size: 30px;
+    left: 45px;
+  }
+
+  .benefits-column .benefit-txt7{
+    position: relative;
+    font-size: 30px;
+    left: 40px;
+  }
+
+  .benefits-column .benefit-txt8{
+    position: relative;
+    font-size: 30px;
+    left: 70px;
+  }
+
+  .benefits-column .benefit-txt9{
+    position: relative;
+    font-size: 30px;
+    left: 50px;
+  }
+
+  .benefits-column .benefit-txt10{
+    position: relative;
+    font-size: 30px;
+    left: 40px;
+  }
+
+  .benefits-column .benefit-txt11{
+    position: relative;
+    font-size: 30px;
+    left: 115px;
+  }
+
+  .benefits-column .benefit-txt12{
+    position: relative;
+    font-size: 30px;
+    left: 120px;
+  }
+
+  .footer-top{
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+
+  .footer-right{
+    margin-left: 130px;
+  }
+
+
+}
+
+/*-----------------------------------*\
+  ##BIG-TABLET DEVICE
+\*-----------------------------------*/
+@media (min-width: 992px) {
+  .menu-btn{
+    margin-left: 930px;
+  }
+
+  .logo{
+    margin-left: -150px;
+  }
+
+  .logo img{
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .header-left{
+    margin-left: 40px;
+  }
+
+  .hero-box{
+    width: 800px;
+    height: 300px;
+  }
+
+  .hero-table{
+    width: 760px;
+    height: 260px;
+  }
+
+  .hero-content .hero-title{
+    font-size: 20px;
+  }
+
+  .hero-content .hero-subtitle{
+    font-size: 39px;
+  }
+
+  .hero-content .hero-describ{
+    font-size: 18px;
+  }
+
+  .about-card{
+    width: 800px;
+    height: 500px;
+  }
+
+  .about-title{
+    font-size: 44px;
+  }
+
+  .about-subtitle,
+  .about-describ,
+  .about-btn
+  {
+    font-size: 19px;
+  }
+
+  .about-describ{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .about-slider{
+    width: 800px;
+    height: 480px;
+  }
+
+  .navigation-manual,
+  .navigation-auto
+  {
+    width: 800px;
+  }
+
+  .bonaparte{
+    margin-top: 120px;
+  }
+
+  .bonaparte-title{
+    font-size: 40px;
+  }
+
+  .container .text{
+    font-size: 20px;
+  }
+
+  #popup,
+  #popup1{
+    width: 450px;
+    height: 600px;
+  }
+
+  .events{
+    padding-top: 260px;
+  }
+
+  .event-container{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .event-left,
+  .event-middle,
+  .event-right{
+    gap: 30px;
+  }
+
+  .event-middle-box
+  {
+    width: 350px;
+    height: 660px;
+  }
+
+  .event-left .event-left-box,
+  .event-right .event-right-box{
+    width: 290px;
+    height: 300px;
+  }
+
+
+  .event-left-box span,
+  .event-middle-box span,
+  .event-right-box span{
+    left: 20px;
+  }
+
+  .benefits-column{
+    width: 490px;
+  }
+
+  .benefits-column .benefit-txt1
+  {
+    position: relative;
+    left: 40px;
+    font-size: 35px;
+  }
+
+  .benefits-column .benefit-txt2{
+    position: relative;
+    font-size: 35px;
+    left: 140px;
+  }
+
+  .benefits-column .benefit-txt3{
+    position: relative;
+    font-size: 35px;
+    left: 70px;
+  }
+
+  .benefits-column .benefit-txt4{
+    position: relative;
+    font-size: 35px;
+    left: 80px;
+  }
+
+  .benefits-column .benefit-txt5{
+    position: relative;
+    font-size: 35px;
+    left: 75px;
+  }
+
+  .benefits-column .benefit-txt6{
+    position: relative;
+    font-size: 35px;
+    left: 65px;
+  }
+
+  .benefits-column .benefit-txt7{
+    position: relative;
+    font-size: 35px;
+    left: 60px;
+  }
+
+  .benefits-column .benefit-txt8{
+    position: relative;
+    font-size: 35px;
+    left: 90px;
+  }
+
+  .benefits-column .benefit-txt9{
+    position: relative;
+    font-size: 35px;
+    left: 70px;
+  }
+
+  .benefits-column .benefit-txt10{
+    position: relative;
+    font-size: 35px;
+    left: 55px;
+  }
+
+  .benefits-column .benefit-txt11{
+    position: relative;
+    font-size: 35px;
+    left: 140px;
+  }
+
+  .benefits-column .benefit-txt12{
+    position: relative;
+    font-size: 35px;
+    left: 145px;
+  }
+
+  .footer-top{
+    flex-wrap: wrap;
+  }
+
+  .footer-left{
+    margin-left: 70px;
+  }
+}
+
+/*-----------------------------------*\
+  ##PC DESKTOP
+\*-----------------------------------*/
+@media (min-width: 1200px){
+  .nav-links{
+    display: flex;
+  }
+
+  .header-left{
+    margin-left: 90px;
+  }
+
+  .header-right{
+    margin-right: 90px;
+  }
+
+  .navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+  }
+
+  .nav-center{
+    width: 200px;
+  }
+
+  .logo{
+    margin-left: 5px;
+  }
+  
+  .logo img{
+    max-width: 180px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+  
+  .navbar a{
+    text-decoration: none;
+    color: #000;
+    font-size: 19px;
+    text-transform: uppercase;
+  }
+
+  .menu-btn{
+    display: none;
+  }
+
+  .header-right{
+    display: flex;
+    gap: 5rem;
+  }
+
+  .hero-box{
+    width: 880px;
+    height: 300px;
+  }
+
+  .hero-table{
+    width: 840px;
+    height: 260px;
+  }
+
+  .hero-content .hero-title{
+    font-size: 20px;
+  }
+
+  .hero-content .hero-subtitle{
+    font-size: 42px;
+  }
+
+  .hero-content .hero-describ{
+    font-size: 17px;
+  }
+
+  .about{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .about-card{
+    width: 500px;
+    height: 610px;
+    background-color: #F4EFEA;
+  }
+  
+  .about-card .card-content{
+    text-align: center;
+  }
+  
+  .about-title{
+    font-size: 40px;
+    padding-top: 30px;
+    color: var(--btn-color);
+    font-family: "The Seasons Bold", sans-serif;
+  }
+  
+  .about-subtitle{
+    padding-top: 10px;
+    font-size: 18px;
+    color: var(--title);
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .about-describ{
+    font-size: 17px;
+    line-height: 25px;
+    padding-top: 35px;
+    font-family: "Montserrat", sans-serif;
+    color: var(--title);
+    padding-bottom: 30px;
+  }
+  
+  .about-btn{
+    text-decoration: none;
+    color: var(--btn-color);
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .about-slider{
+    overflow: hidden;
+    width: 700px;
+    height: 500px;
+    border-radius: 10px;
+  }
+
+  .navigation-manual,
+  .navigation-auto{
+    width: 700px;
+  }
+
+  .bonaparte{
+    margin-top: 120px;
+  }
+
+  .bonaparte-title{
+    font-size: 40px;
+  }
+
+  .container .text{
+    font-size: 20px;
+  }
+
+  #popup,
+  #popup1{
+    width: 450px;
+    height: 600px;
+  }
+
+  .eiffel{
+    margin-top: 50px;
+  }
+
+  .events{
+    margin-top: -80px;
+  }
+
+  .event-container{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .event-left,
+  .event-middle,
+  .event-right{
+    gap: 30px;
+  }
+
+  .event-middle-box
+  {
+    width: 400px;
+    height: 660px;
+  }
+
+  .event-left .event-left-box,
+  .event-right .event-right-box{
+    width: 330px;
+    height: 300px;
+  }
+
+
+  .event-left-box span,
+  .event-middle-box span,
+  .event-right-box span{
+    left: 20px;
+  }
+
+  .benefits-describ,
+  .gallery-describ,
+  .bonaparte-describ,
+  .media-describ
+  {
+    width: 1000px;
+  }
+
+  .benefits-column{
+    width: 700px;
+  }
+
+  .benefits-column .benefit-txt1
+  {
+    position: relative;
+    left: 95px;
+    font-size: 45px;
+  }
+
+  .benefits-column .benefit-txt2{
+    position: relative;
+    font-size: 45px;
+    left: 210px;
+  }
+
+  .benefits-column .benefit-txt3{
+    font-size: 45px;
+    position: relative;
+    left: 120px;
+  }
+
+  .benefits-column .benefit-txt4{
+    position: relative;
+    font-size: 45px;
+    left: 140px;
+  }
+
+  .benefits-column .benefit-txt5{
+    position: relative;
+    font-size: 45px;
+    left: 135px;
+  }
+
+  .benefits-column .benefit-txt6{
+    position: relative;
+    font-size: 45px;
+    left: 120px;
+  }
+
+  .benefits-column .benefit-txt7{
+    position: relative;
+    font-size: 45px;
+    left: 120px;
+  }
+
+  .benefits-column .benefit-txt8{
+    position: relative;
+    font-size: 45px;
+    left: 155px;
+  }
+
+  .benefits-column .benefit-txt9{
+    position: relative;
+    font-size: 45px;
+    left: 130px;
+  }
+
+  .benefits-column .benefit-txt10{
+    position: relative;
+    font-size: 45px;
+    left: 115px;
+  }
+
+  .benefits-column .benefit-txt11{
+    position: relative;
+    font-size: 45px;
+    left: 225px;
+  }
+
+  .benefits-column .benefit-txt12{
+    position: relative;
+    font-size: 45px;
+    left: 230px;
+  }
+
+  .footer-right{
+    margin-right: 140px;
+  }
+}
